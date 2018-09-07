@@ -1,6 +1,15 @@
 def heapsort(arr):
- pass 
+  new_heap = Heap(arr)
+  length = len(arr) - 1
+  leastParent = length//2
+  for i in range(leastParent, -1, -1):
+    new_heap._sift_down(new_heap, i, length)
  
+  for i in range(length, 0, -1):
+    if new_heap[0] > new_heap[i]:
+      tmp = new_heap[0]
+      new_heap[0] = new_heap[i]
+      new_heap[i] = tmp
 
 class Heap:
   def __init__(self):
